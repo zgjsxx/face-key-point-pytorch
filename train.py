@@ -31,9 +31,9 @@ loss_function = nn.MSELoss(size_average=None,
                  reduction='mean')
 optimizer = optim.Adam(net.parameters(), lr=0.0001)
 
-test_flag = True
-model_dir=r".\best_models\vgg16Net-0.pth"
-if test_flag:
+load_pretrain_model = False
+model_dir=r".\pretrain_models\face-keypoint-vgg16-0.pth"
+if load_pretrain_model:
     # 加载保存的模型直接进行测试机验证，不进行此模块以后的步骤
     checkpoint = torch.load(model_dir)
     net.load_state_dict(checkpoint)

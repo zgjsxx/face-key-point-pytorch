@@ -48,17 +48,27 @@ You can download it by yourself. You can also download the data from the cloud d
 | name                | link |
 | ------------------- | ---- |
 | landmarks_jpg.zip   |  https://pan.baidu.com/s/1AJKpa0ac-6ZPWBASiMv87Q code: nujr |
-| landmarks_label.zip | 链接：https://pan.baidu.com/s/1wBAZMFkNQS6R6KLkRl6ktw code: zgl0  |
+| landmarks_label.zip | https://pan.baidu.com/s/1wBAZMFkNQS6R6KLkRl6ktw code: zgl0  |
 
 ## 2. how to train
+First, install the third-party package:
+```
+pip install -r requirements.txt
+```
 
-Just simply run the below command:
+Then just simply run the below command:
 
 ```
 python3 train.py
 ```
-
-
+if you want to use the pretrained models, you can revise the below code as you need:
+```
+load_pretrain_model = False
+model_dir=r".\pretrain_models\face-keypoint-vgg16-0.pth"
+if load_pretrain_model:
+    checkpoint = torch.load(model_dir)
+    net.load_state_dict(checkpoint)
+```
 
 ## 3. how to test 
 Revise the test file name in predict.py and then run the below command:
